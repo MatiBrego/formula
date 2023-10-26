@@ -2,6 +2,9 @@ package edu.austral.ingsis.math;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,7 +16,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction1() {
-        final Double result = 4d;
+        final Double result = new Addition(new Value(1), new Variable("x")).evaluate(Map.of("x", new Value(3)));
 
         assertThat(result, equalTo(4d));
     }
@@ -23,7 +26,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction2() {
-        final Double result = 3d;
+        final Double result = new Division(new Value(12), new Variable("div")).evaluate(Map.of("div", new Value(4)));
 
         assertThat(result, equalTo(3d));
     }
@@ -33,7 +36,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction3() {
-        final Double result = 12d;
+        final Double result = new Multiplication(new Division(new Value(9), new Variable("x")), new Variable("y")).evaluate(Map.of("x", new Value(3), "y", new Value(4)));
 
         assertThat(result, equalTo(12d));
     }
@@ -43,7 +46,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction4() {
-        final Double result = 27d;
+        final Double result = new Power(new Division(new Value(27), new Variable("a")), new Variable("b")).evaluate(Map.of("a", new Value(9), "b", new Value(3)));
 
         assertThat(result, equalTo(27d));
     }
@@ -53,7 +56,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction5() {
-        final Double result = 6d;
+        final Double result = new Power(new Variable("z"), new Division(new Value(1), new Value(2))).evaluate(Map.of("z", new Value(36)));
 
         assertThat(result, equalTo(6d));
     }
@@ -63,7 +66,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction6() {
-        final Double result = 0d;
+        final Double result = new Subtraction(new Absolute(new Variable("value")), new Value(8)).evaluate(Map.of("value", new Value(8)));
 
         assertThat(result, equalTo(0d));
     }
@@ -73,7 +76,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction7() {
-        final Double result = 0d;
+        final Double result = new Subtraction(new Absolute(new Variable("value")), new Value(8)).evaluate(Map.of("value", new Value(8)));
 
         assertThat(result, equalTo(0d));
     }
@@ -83,7 +86,7 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction8() {
-        final Double result = 24d;
+        final Double result = new Multiplication(new Subtraction(new Value(5), new Variable("i")), new Value(8)).evaluate(Map.of("i", new Value(2)));
 
         assertThat(result, equalTo(24d));
     }

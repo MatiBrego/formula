@@ -1,0 +1,44 @@
+@startuml
+interface Function {
+    + print(): String
+    + evaluate(Map<String, Function> variables): double
+}
+class Value implements Function{
+    value: double
+}
+class Variable implements Function{
+    identifier: string
+}
+class Add implements Function{
+    left: Function
+    right: Function
+}
+class Multiply implements Function{
+    left: Function
+    right: Function
+}
+class Divide implements Function{
+    left: Function
+    right: Function
+}
+class Subtract implements Function{
+    left: Function
+    right: Function
+}
+class Negate implements Function{
+    value: Function
+}
+class Sqrt implements Function{
+    value: Function
+}
+class Power implements Function{
+    base: Function
+    exponent: Function
+}
+class Absolute implements Function{
+    value: Function
+}
+
+
+
+@enduml

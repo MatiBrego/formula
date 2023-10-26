@@ -2,6 +2,8 @@ package edu.austral.ingsis.math;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,7 +15,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction1() {
-        final Double result = 7d;
+        final Double result = new Addition(new Value(1), new Value(6)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(7d));
     }
@@ -23,7 +25,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction2() {
-        final Double result = 6d;
+        final Double result = new Division(new Value(12), new Value(2)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(6d));
     }
@@ -33,7 +35,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction3() {
-        final Double result = 13.5;
+        final Double result = new Multiplication(new Division(new Value(9), new Value(2)), new Value(3)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(13.5d));
     }
@@ -43,7 +45,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction4() {
-        final Double result = 20.25;
+        final Double result = new Power(new Division(new Value(27), new Value(6)), new Value(2)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(20.25d));
     }
@@ -53,7 +55,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction5() {
-        final Double result = 6d;
+        final Double result = new Power(new Value(36), new Division(new Value(1), new Value(2))).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(6d));
     }
@@ -63,7 +65,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction6() {
-        final Double result = 136d;
+        final Double result = new Absolute(new Value(136)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(136d));
     }
@@ -73,7 +75,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction7() {
-        final Double result = 136d;
+        final Double result = new Absolute(new Negate(new Value(136))).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(136d));
     }
@@ -83,7 +85,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction8() {
-        final Double result = 0d;
+        final Double result = new Multiplication(new Subtraction(new Value(5), new Value(5)), new Value(8)).evaluate(new HashMap<>());
 
         assertThat(result, equalTo(0d));
     }
