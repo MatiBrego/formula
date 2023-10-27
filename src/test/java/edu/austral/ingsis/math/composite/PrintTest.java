@@ -1,5 +1,6 @@
-package edu.austral.ingsis.math;
+package edu.austral.ingsis.math.composite;
 
+import edu.austral.ingsis.math.composite.*;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
