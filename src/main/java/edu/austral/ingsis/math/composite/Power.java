@@ -1,8 +1,6 @@
 package edu.austral.ingsis.math.composite;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Power implements Function{
 
@@ -26,10 +24,10 @@ class Power implements Function{
     }
 
     @Override
-    public List<String> getVariables() {
-        List<String> baseVariables = base.getVariables();
-        List<String> exponentVariables = exponent.getVariables();
-        return new ArrayList<>(baseVariables) {{
+    public Set<String> getVariables() {
+        Set<String> baseVariables = base.getVariables();
+        Set<String> exponentVariables = exponent.getVariables();
+        return new HashSet<>(baseVariables) {{
             addAll(exponentVariables);
         }};
     }

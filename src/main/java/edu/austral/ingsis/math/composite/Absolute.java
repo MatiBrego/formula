@@ -1,7 +1,7 @@
 package edu.austral.ingsis.math.composite;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class Absolute implements Function{
 
@@ -22,7 +22,7 @@ class Absolute implements Function{
     }
 
     @Override
-    public List<String> getVariables() {
+    public Set<String> getVariables() {
     	return value.getVariables();
     }
 }

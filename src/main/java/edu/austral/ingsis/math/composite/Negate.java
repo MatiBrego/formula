@@ -1,7 +1,7 @@
 package edu.austral.ingsis.math.composite;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class Negate implements Function{
     private final Function value;
@@ -21,7 +21,7 @@ class Negate implements Function{
     }
 
     @Override
-    public List<String> getVariables() {
+    public Set<String> getVariables() {
         return value.getVariables();
     }
 }

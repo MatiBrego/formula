@@ -2,6 +2,7 @@ package edu.austral.ingsis.math.composite;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class Variable implements Function{
 
@@ -22,7 +23,7 @@ class Variable implements Function{
     }
 
     @Override
-    public List<String> getVariables() {
-    	return List.of(identifier);
+    public Set<String> getVariables() {
+    	return Set.of(identifier);
     }
 }

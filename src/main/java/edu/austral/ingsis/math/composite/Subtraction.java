@@ -1,8 +1,6 @@
 package edu.austral.ingsis.math.composite;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Subtraction implements Function{
     private final Function left;
@@ -24,10 +22,10 @@ class Subtraction implements Function{
     }
 
     @Override
-    public List<String> getVariables() {
-        List<String> leftVariables = left.getVariables();
-        List<String> rightVariables = right.getVariables();
-        return new ArrayList<>(leftVariables) {{
+    public Set<String> getVariables() {
+        Set<String> leftVariables = left.getVariables();
+        Set<String> rightVariables = right.getVariables();
+        return new HashSet<>(leftVariables) {{
             addAll(rightVariables);
         }};
     }
