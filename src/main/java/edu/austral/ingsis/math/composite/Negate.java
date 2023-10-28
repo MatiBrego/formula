@@ -3,7 +3,7 @@ package edu.austral.ingsis.math.composite;
 import java.util.List;
 import java.util.Map;
 
-public class Negate implements Function{
+class Negate implements Function{
     private final Function value;
 
     public Negate(Function value){

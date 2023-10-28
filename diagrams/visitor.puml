@@ -1,9 +1,9 @@
 @startuml
+
 interface Function {
-    + print(): String
-    + evaluate(Map<String, Function> variables): double
-    + getVariables(): List<String>
+    + accept(Visitor)
 }
+
 class Value implements Function{
     value: double
 }
@@ -40,6 +40,30 @@ class Absolute implements Function{
     value: Function
 }
 
+interface Visitor{
+    + visit(Absolute)
+    + visit(Addition)
+    + visit(Division)
+    + visit(Multiplication)
+    + visit(Negate)
+    + visit(Sqrt)
+    + visit(Subtraction)
+    + visit(Value)
+    + visit(Variable)
+}
 
+Function -> Visitor
+
+class PrinterVisitor implements Visitor{
+    + print(Function)
+}
+
+class evaluatorVisitor implements Visitor{
+    + evaluate(Function)
+}
+
+class variableGetterVisitor implements Visitor{
+    + getVariables(Function)
+}
 
 @enduml

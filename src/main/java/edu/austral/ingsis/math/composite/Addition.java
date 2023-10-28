@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Addition implements Function{
+class Addition implements Function{
     private final Function left;
     private final Function right;
 

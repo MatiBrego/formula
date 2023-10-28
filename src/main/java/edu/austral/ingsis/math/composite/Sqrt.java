@@ -3,7 +3,7 @@ package edu.austral.ingsis.math.composite;
 import java.util.List;
 import java.util.Map;
 
-public class Sqrt implements Function {
+class Sqrt implements Function {
 
     private final Function value;
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Power implements Function{
+class Power implements Function{
 
     private final Function base;
     private final Function exponent;

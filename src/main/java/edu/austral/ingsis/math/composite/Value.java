@@ -3,7 +3,7 @@ package edu.austral.ingsis.math.composite;
 import java.util.List;
 import java.util.Map;
 
-public class Value implements Function{
+class Value implements Function{
 
     private final double value;
 

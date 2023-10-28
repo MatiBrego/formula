@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Division implements Function{
+class Division implements Function{
 
     private final Function left;
     private final Function right;
